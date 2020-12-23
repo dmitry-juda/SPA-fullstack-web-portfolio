@@ -2,8 +2,12 @@ const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
 
+const helmet = require('helmet')
+
 const app = express()
 
+//security uses
+app.use(helmet())
 
 app.use(express.json({extended: true}))
 

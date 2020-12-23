@@ -4,9 +4,24 @@ const {check, validationResult} = require('express-validator')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const router = Router()
+const rateLimit = require("express-rate-limit");
 
 const config = require('config')
 const ERR500 = config.get('err500')
+
+if(config.get('prod')) {
+    const apiLimiter = rateLimit({
+        windowMs: 5 * 60 * 1000, // 3 minutes
+        max: 25
+      })
+}
+else {
+    const apiLimiter = rateLimit({
+        windowMs: 5 * 60 * 1000, // 3 minutes
+        max: 1000
+      })
+}
+
 
 // /api/auth/register
 router.post(
@@ -16,6 +31,8 @@ router.post(
         check('password', 'короткий пароль (минимум 6)').isLength({ min: 6 })
     ]
     , 
+        apiLimiter
+    ,
     async (req, res) => {
 
     try {
@@ -63,11 +80,13 @@ router.post(
 // /api/auth/login
 router.post('/login',
 
-[
+    [
         check('username','с таким мылом в баню нельзя').exists(),
         check('password', 'без пароля тоже нельзя').exists()
     ]
     , 
+        apiLimiter
+    ,
     async (req, res) => {
     try {
 
