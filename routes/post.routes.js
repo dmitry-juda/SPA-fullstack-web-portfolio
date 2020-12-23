@@ -21,6 +21,11 @@ router.post('/new', auth,
         .not().isEmpty()
         .trim()
         .escape().withMessage('problem with text')
+        ,
+        body('userId')
+        .not().isEmpty()
+        .trim()
+        .escape().withMessage('problem with user')
     ], 
 
     async (req,res) => {
@@ -36,13 +41,14 @@ router.post('/new', auth,
             }
 
             //body destruct
-            const {name,text} = req.body
+            const {name,text,userId} = req.body
             const Post = require('../models/Post')
     
             docPost = new Post ({
                 _id: new mongoose.Types.ObjectId(),
                 name: name,
-                text: text
+                text: text,
+                owner: userId
             })
     
             docPost.save((err) => {
