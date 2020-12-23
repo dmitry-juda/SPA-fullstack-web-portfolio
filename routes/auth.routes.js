@@ -9,19 +9,20 @@ const rateLimit = require("express-rate-limit");
 const config = require('config')
 const ERR500 = config.get('err500')
 
+let maxRequest = 25
+
+
 if(config.get('prod')) {
-    const apiLimiter = rateLimit({
-        windowMs: 5 * 60 * 1000, // 3 minutes
-        max: 25
-      })
+    const maxRequest = 25
 }
 else {
-    const apiLimiter = rateLimit({
-        windowMs: 5 * 60 * 1000, // 3 minutes
-        max: 1000
-      })
+    const maxRequest = 1000
 }
 
+const apiLimiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 3 minutes
+    max: maxRequest
+  })
 
 // /api/auth/register
 router.post(
