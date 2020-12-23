@@ -1,0 +1,6 @@
+{
+    "port": 5000,
+    "mongoUri": "mongodb+srv://dmitry:16326581873@cluster0.xocej.mongodb.net/app?retryWrites=true&w=majority",
+    "err500": "хуйня дело, что-то не работает так, как задумано — тобишь сломалось, либо изначально было сделано неправильно.",
+    "jwtSecret": "dmitry" 
+}

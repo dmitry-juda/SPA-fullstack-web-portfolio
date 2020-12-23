@@ -1,0 +1,36 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "backend": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "npm-run-all --parallel server client",
+    "inst": "npm i && cd client && npm i && cd ../",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chalk": "^1.1.3",
+    "expect": "^26.6.2",
+    "mocha": "^8.2.1",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^6.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.3",
+    "request": "^2.88.2"
+  }
+}

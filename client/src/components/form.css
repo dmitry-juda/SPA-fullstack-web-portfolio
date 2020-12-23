@@ -1,0 +1,49 @@
+.authForm {
+    width: 300px;
+    height: 140px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.authForm__centered {
+    width: 100%;
+    text-align: center;
+}
+
+.authForm input {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    outline: none;
+    border: 0px;
+    border-bottom: 1px solid rgb(122, 122, 122);
+}
+
+.authForm button {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    outline: none;
+    border: none;
+    background: rgb(224, 224, 224);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.authForm button:hover {
+    background: rgb(58, 58, 58);
+    color:rgb(224, 224, 224);
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.gray {
+    color: rgb(224, 224, 224);
+}
+.password {
+    -webkit-text-security: circle;
+}

@@ -1,0 +1,144 @@
+// $cardColor: #fffffe;
+// $bgColor: #eff0f3;
+// $textColor: #2a2a2a;
+// $headLine: #0d0d0d;
+// $highline: #ff8e3c;
+$allpad: 40px 40px;
+$siteW: 980px;
+
+$cardColor:#d1d1e9;
+$bgColor: #fffffe;
+$textColor:#2b2c34;
+$headLine: #2b2c34;
+$highline: #6246ea;
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+%card {
+    display: flex;
+    flex-direction: column;
+
+    background: $cardColor;
+    padding: $allpad;
+  }
+
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    //width: 100%;
+    background: $bgColor;
+    
+    ::selection {
+        background: $highline;
+    }
+}
+
+%headline {
+    color:  $headLine;
+    margin: 0px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+}
+%text {
+    color: $textColor;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+%brick {
+    //background: $cardColor;
+    padding: 10px 20px;
+    margin-top: 0px;
+    border-radius: 5px;   
+    @extend %text;
+}
+
+a {
+    @extend %text;
+    color: $highline;
+}
+ul {
+    max-width: 50%;
+    list-style: circle;
+    margin: 0px;
+    padding: 0 30;
+    li {
+        @extend %text;
+    }
+} 
+
+header {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+    article {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        width: $siteW;
+        padding-top: 20px;
+
+        margin: 0 auto;
+        .headerContainer {
+            display: flex;
+            flex-direction: column;
+    
+            //background: $cardColor;
+            padding: $allpad;
+    
+            //border-radius: 0px 5px 5px 0px;
+    
+            border-radius: 5px;
+    
+            min-height: 80px;
+            max-height: 80px;
+
+            width: 100%;
+    
+            h1 {
+                @extend %headline
+            }
+            p {
+                @extend %text;
+            }
+    }
+}
+
+    .photo {
+        background: $cardColor url('../img/photo.jpg') center no-repeat;
+        background-size: cover;
+        padding: $allpad;
+        //border-radius: 5px 0px 0px 5px;
+        border-radius: 300px;
+        margin-right: 20px;
+        min-height: 80px;
+        max-height: 80px;
+        min-width: 80px;
+        max-width: 80px;
+    }
+}
+
+main {
+    min-width: $siteW;
+    max-width: $siteW;
+    margin: 0 auto;
+}
+
+.masonry {
+    display: flex;
+    flex-direction: column
+}
+
+.brick {
+    @extend %brick;
+    width: auto;
+}
