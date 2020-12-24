@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import {LinksPage} from './pages/LinksPage'
-import {CreatePage} from './pages/CreatePage'
+import {CreatePost} from './pages/CreatePost'
 import {DetailPage} from './pages/DetailPage'
 import {AuthPage} from './pages/AuthPage'
 
@@ -20,7 +20,7 @@ export const useRoutes = isAuth => {
                 <LinksPage />
             </Route>
             <Route path="/create" exact>
-                <CreatePage />
+                <CreatePost />
             </Route>
             <Route path="/detail/:id">
                 <DetailPage />
